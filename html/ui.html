@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Battle Royale Lobby</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="lobby-container" style="display: none;">
+        <h1>Battle Royale Lobby</h1>
+        <p>Spieler in der Lobby: <span id="player-count">0</span></p>
+        <button id="ready-button">Bereit</button>
+        <button id="leave-button">Verlassen</button>
+        <button id="close-button">Schließen</button>
+    </div>
+
+    <!-- HUD Container, kopiert von hud.html -->
+    <div id="hud-container" style="display: none;">
+        <div class="hud-element">
+            <span>Leben: </span><span id="health">100</span>
+            <div class="bar-background"><div id="health-bar" class="bar"></div></div>
+        </div>
+        <div class="hud-element">
+            <span>Weste: </span><span id="armour">0</span>
+            <div class="bar-background"><div id="armour-bar" class="bar"></div></div>
+        </div>
+        <div class="hud-element">
+            <span>Spieler am Leben: </span><span id="alive-players">1</span>
+        </div>
+        <div class="hud-element">
+            <span>Kills: </span><span id="kills">0</span>
+        </div>
+        <div class="hud-element">
+            <span>Nächste Zone in: </span><span id="zone-timer">00:00</span>
+        </div>
+    </div>
+
+    <!-- Hotbar Container -->
+    <div id="hotbar-container" style="display: none;">
+        <div class="hotbar-slot" data-slotid="1">
+            <span class="slot-keybind">1</span>
+            <img src="" alt="" class="slot-icon">
+            <span class="slot-quantity"></span>
+        </div>
+        <div class="hotbar-slot" data-slotid="2">
+            <span class="slot-keybind">2</span>
+            <img src="" alt="" class="slot-icon">
+            <span class="slot-quantity"></span>
+        </div>
+        <div class="hotbar-slot" data-slotid="3">
+            <span class="slot-keybind">3</span>
+            <img src="" alt="" class="slot-icon">
+            <span class="slot-quantity"></span>
+        </div>
+        <div class="hotbar-slot" data-slotid="4">
+            <span class="slot-keybind">4</span>
+            <img src="" alt="" class="slot-icon">
+            <span class="slot-quantity"></span>
+        </div>
+        <div class="hotbar-slot" data-slotid="5">
+            <span class="slot-keybind">5</span>
+            <img src="" alt="" class="slot-icon">
+            <span class="slot-quantity"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

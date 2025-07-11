@@ -1,0 +1,180 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparenter Hintergrund, wenn UI sichtbar */
+}
+
+#lobby-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#lobby-container h1 {
+    color: #333;
+}
+
+#lobby-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#lobby-container button:hover {
+    background-color: #45a049;
+}
+
+#leave-button {
+    background-color: #f44336; /* Rot */
+}
+
+#leave-button:hover {
+    background-color: #da190b;
+}
+
+#close-button {
+    background-color: #777; /* Grau */
+}
+
+#close-button:hover {
+    background-color: #555;
+}
+
+/* HUD Styles - kopiert von hud.css */
+/* Globale body/html Stile von hud.css wurden ausgelassen oder in #hud-container integriert,
+   da style.css bereits body für die Lobby-UI handhabt. */
+
+#hud-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Geändert von left zu right */
+    left: auto; /* Stellt sicher, dass 'left' nicht stört */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: flex; /* Wird von JS auf flex gesetzt, wenn sichtbar */
+    flex-direction: column;
+    gap: 8px; /* Abstand zwischen den Elementen */
+    font-family: Arial, sans-serif; /* Schriftart hier definieren */
+    color: white; /* Textfarbe hier definieren */
+}
+
+.hud-element {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px black;
+}
+
+.hud-element span:first-child {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.bar-background {
+    background-color: #555;
+    border-radius: 3px;
+    height: 10px;
+    width: 100px; /* Breite des Balkens */
+    margin-left: 8px;
+    overflow: hidden; /* Stellt sicher, dass der innere Balken nicht überläuft */
+    border: 1px solid #333;
+}
+
+.bar {
+    height: 100%;
+    border-radius: 2px; /* Etwas weniger als der Hintergrund für einen schönen Effekt */
+    transition: width 0.2s ease-out; /* Sanfter Übergang bei Wertänderung */
+}
+
+#health-bar {
+    background-color: #4CAF50; /* Grün */
+    width: 100%; /* Startwert */
+}
+
+#armour-bar {
+    background-color: #2196F3; /* Blau */
+    width: 0%; /* Startwert */
+}
+
+#health, #armour, #alive-players, #kills, #zone-timer {
+    min-width: 20px; /* Mindestbreite, um Springen zu reduzieren */
+    display: inline-block;
+    text-align: left;
+}
+
+/* Hotbar Styles */
+#hotbar-container {
+    position: fixed;
+    bottom: 15px; /* Etwas höher als die HUD, oder nach Bedarf anpassen */
+    left: 50%;
+    transform: translateX(-50%); /* Zentriert die Hotbar horizontal */
+    display: flex; /* Wird von JS auf flex gesetzt, wenn sichtbar */
+    gap: 8px; /* Abstand zwischen den Slots */
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+.hotbar-slot {
+    width: 60px; /* Breite des Slots */
+    height: 60px; /* Höhe des Slots */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Zentriert Icon, falls es kleiner ist */
+    position: relative; /* Für die Positionierung von Menge und Keybind */
+    cursor: default; /* Standard-Mauszeiger */
+    overflow: hidden; /* Verhindert, dass das Icon überläuft */
+}
+
+.hotbar-slot .slot-icon {
+    max-width: 48px; /* Maximale Breite des Icons im Slot */
+    max-height: 48px; /* Maximale Höhe des Icons im Slot */
+    object-fit: contain; /* Stellt sicher, dass das Bild Seitenverhältnis beibehält */
+}
+
+.hotbar-slot .slot-quantity {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1px 3px;
+    border-radius: 2px;
+    text-shadow: none; /* Kann den Text klarer machen */
+}
+
+.hotbar-slot .slot-keybind {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 11px;
+    color: #ccc;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1px 3px;
+    border-radius: 2px;
+}
+
+/* Wenn ein Slot leer ist, könnte man das Icon ausblenden oder ein Standard-Icon anzeigen */
+.hotbar-slot img[src=""], .hotbar-slot img:not([src]) {
+    display: none; /* Leere Icons ausblenden */
+}
